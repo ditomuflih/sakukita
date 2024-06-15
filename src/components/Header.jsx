@@ -13,7 +13,7 @@ const Header = () => {
         <a href="/tentang" className="text-white">Tentang</a>
         <a href="/help" className="text-white">Help</a>
       </nav>
-      <div className="bg-white rounded-full p-2" onClick={() => navigate('/profil')}>
+      <div className="bg-white rounded-full p-2" onClick={() => navigate('/profile')}>
         <img src="/user.png" alt="User Icon" className="w-8 h-8" />
       </div>
     </header>
