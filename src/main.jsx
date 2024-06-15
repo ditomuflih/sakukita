@@ -23,8 +23,8 @@ const App = () => {
   const [transactions, setTransactions] = useState([]);
   const [categories, setCategories] = useState([]);
   const [userProfile, setUserProfile] = useState({
-    name: 'Ahmad Kareem Keren',
-    email: 'ahmadkk@gmail.com',
+    name: 'muflih',
+    email: 'muflih@gmail.com',
   });
 
   return (
@@ -60,7 +60,7 @@ const AnimatedRoutes = ({ transactions, setTransactions, categories, setCategori
           <Route path="/laporan" element={<ReportsPage transactions={transactions} />} />
           <Route path="/tentang" element={<AboutPage />} />
           <Route path="/help" element={<HelpPage />} />
-          <Route path="/profil" element={<ProfilePage userProfile={userProfile} />} />
+          <Route path="/profile" element={<ProfilePage userProfile={userProfile} />} />
           <Route path="/edit-profil" element={<EditProfilePage userProfile={userProfile} setUserProfile={setUserProfile} />} />
         </Routes>
       </CSSTransition>
