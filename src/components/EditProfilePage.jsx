@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const EditProfilePage = () => {
+const EditProfilePage = ({ userProfile, setUserProfile }) => {
   const navigate = useNavigate();
-  const [name, setName] = useState('Ahmad Kareem Keren');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState(userProfile.name);
+  const [email, setEmail] = useState(userProfile.email);
   const [password, setPassword] = useState('');
 
   const handleSaveChanges = (e) => {
     e.preventDefault();
-    // Logic untuk menyimpan perubahan profil
-    navigate('/profil');
+    // Update the user profile with new values
+    setUserProfile({ ...userProfile, name, email });
+    navigate('/profile');
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-green-500 p-4 flex justify-between items-center">
-        <button onClick={() => navigate('/profil')} className="text-white">Back</button>
+        <button onClick={() => navigate('/profile')} className="text-white">Back</button>
       </header>
       <div className="flex-grow flex items-center justify-center">
         <form onSubmit={handleSaveChanges} className="bg-green-500 p-8 rounded-lg shadow-md w-1/3">
@@ -28,7 +29,7 @@ const EditProfilePage = () => {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded text-black" // Tambahkan kelas text-black
+              className="w-full p-2 border border-gray-300 rounded text-black"
               required
             />
           </div>
@@ -39,7 +40,7 @@ const EditProfilePage = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded text-black" // Tambahkan kelas text-black
+              className="w-full p-2 border border-gray-300 rounded text-black"
               required
             />
           </div>
@@ -67,4 +68,3 @@ const EditProfilePage = () => {
 };
 
 export default EditProfilePage;
-
